@@ -1,0 +1,76 @@
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.button {
+  $block-name: &; // #{$block-name}__element
+
+  @include flex-center;
+  @include button-title;
+
+  padding: 11px 20px;
+  color: var(--front-invert);
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.25s ease, border 0.25s ease, color 0.25s ease;
+  appearance: none;
+
+  &:focus {
+    outline: 3px solid var(--brand-primary-light);
+  }
+
+  &--primary {
+    background: var(--brand-primary);
+    border: 1px solid var(--brand-primary);
+
+    &:hover {
+      background: var(--brand-primary-dark);
+    }
+
+    &[disabled],
+    &#{$block-name}--disabled {
+      background: var(--brand-primary-light);
+      border-color: var(--brand-primary-light);
+    }
+  }
+
+  &--secondary {
+    color: var(--front-primary);
+    background: var(--back-secondary);
+    border: 1px solid var(--border-button);
+
+    &:hover {
+      border-color: var(--front-primary);
+    }
+
+    &[disabled],
+    &#{$block-name}--disabled {
+      color: var(--front-tertiary);
+      border-color: var(--border-button-disabled);
+    }
+  }
+
+  &--link {
+    display: inline-flex;
+    justify-content: flex-start;
+    padding: 0;
+    font-size: 2.4rem;
+    line-height: 1.3;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &__title {
+    display: block;
+  }
+}

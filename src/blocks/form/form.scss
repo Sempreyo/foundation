@@ -1,0 +1,16 @@
+.form {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 24px;
+
+  &__body {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__footer {
+    display: grid;
+    gap: 16px;
+  }
+}

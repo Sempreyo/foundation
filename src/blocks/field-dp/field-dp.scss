@@ -1,0 +1,48 @@
+@import "../../scss/mixins/text-styles";
+
+.field-dp {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 24px;
+  }
+
+  &__label {
+    @include input;
+
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    transition: all 0.25s ease;
+
+    #{$block-name}__input[required] + &::after {
+      margin-left: 2px;
+      color: var(--color-warning);
+      content: "*";
+    }
+
+    #{$block-name}__input:focus + &,
+    #{$block-name}__input.input--has-value + & {
+      @include field;
+
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__message {
+    @include field;
+
+    display: none;
+    margin-top: 4px;
+    color: var(--color-warning);
+
+    #{$block-name}__input:invalid + & {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+//- Все примеси в этом файле должны начинаться c имени блока (input-file)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin input-file(mods, name, id)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //-   name    {string} - атрибут name
+  //-   id      {string} - атрибут id
+  //- Вызов:
+        +input-file('some-mod', 'file-name', 'file-id')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' input-file--' + modsList[i].trim();
+      }
+    }
+
+  label.input-file(class= allMods)
+    input.input-file__input(type='file', id=id, name=name)&attributes(attributes)
+    span.input-file__fake-input
+      span.input-file__title

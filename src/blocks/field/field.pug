@@ -1,0 +1,51 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin field(type, label, placeholder, mods, name, id, value, max)
+
+  //- Принимает:
+  //-   type        {string} - тип поля [text|email|phone|search|password|number|file|textarea|select]
+  //-   label       {string} - заголовок поля
+  //-   placeholder {string} - атрибут placeholder
+  //-   mods        {string} - список модификаторов
+  //-   name        {string} - атрибут name
+  //-   id          {string} - атрибут id
+  //-   value       {string} - атрибут value
+  //-   max         {string} - максимальное значение
+  //- Вызов:
+        +field('text', 'Имя', 'Введите имя', 'some-mod', 'field-id', 'field-name', 'Д’Артаньян')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' field--' + modsList[i].trim();
+      }
+    }
+
+
+  .field(class= allMods)
+    label.field__inner
+      if type === 'text'
+        +input(placeholder, '', id, name, value)(class='field__input')&attributes(attributes)
+      if type === 'email'
+        +input-email(placeholder, '', id, name, value)(class='field__input')&attributes(attributes)
+      if type === 'phone'
+        +input-phone(placeholder, '', id, name, value)(class='field__input')&attributes(attributes)
+      if type === 'search'
+        +input-search(placeholder, '', id, name, value)(class='field__input')&attributes(attributes)
+      if type === 'password'
+        +input-password(placeholder, '', id, name, value)(class='field__input')&attributes(attributes)
+      if type === 'number'
+        +input-number(placeholder, '', id, max, name, value)(class='field__input')&attributes(attributes)
+      if type === 'file'
+        +input-file('', id, name)(class='field__input')&attributes(attributes)
+      if type === 'textarea'
+        +textarea(placeholder, '', name, id, value)(class='field__textarea')&attributes(attributes)
+      if type === 'select'
+        +select(value, '', name, id)(class='field__select')&attributes(attributes)
+      if label
+        span.field__label!= label
+    .field__message Текст ошибки

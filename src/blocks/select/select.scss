@@ -1,0 +1,39 @@
+@import "../../scss/mixins/text-styles";
+
+.select {
+  $block-name: &; // #{$block-name}__element
+
+  @include input;
+
+  height: 48px;
+  padding: 15px 47px 15px 19px;
+  background: url("../{{icon}}/icon__arrow--down-view") right 11px top 11px no-repeat, var(--back-primary);
+  background-size: 24px 24px;
+  border: 1px solid var(--border-button);
+  border-radius: 4px;
+  outline: none;
+  transition: border 0.25s ease-out;
+  appearance: none;
+
+  &::placeholder {
+    color: var(--front-secondary);
+  }
+
+  &[disabled] {
+    color: var(--front-tertiary);
+    border-color: var(--border-button-disabled);
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: var(--front-tertiary);
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: 1px solid var(--border-button);
+    -webkit-text-fill-color: var(--back-primary);
+    -webkit-box-shadow: none;
+  }
+}

@@ -1,0 +1,61 @@
+@import "../../scss/mixins/text-styles";
+
+.input {
+  $block-name: &; // #{$block-name}__element
+
+  @include input;
+
+  height: 48px;
+  padding: 15px 19px;
+  background: var(--back-primary);
+  border: 1px solid var(--border-button);
+  border-radius: 4px;
+  transition: border 0.25s ease-out, outline 0.25s ease-out;
+  appearance: none;
+
+  &::placeholder {
+    color: var(--front-secondary);
+  }
+
+  &:focus {
+    outline: 3px solid var(--brand-primary-light);
+  }
+
+  &--has-value,
+  &:focus {
+    border: 1px solid var(--brand-primary);
+  }
+
+  &[disabled] {
+    color: var(--front-tertiary);
+    border-color: var(--border-button-disabled);
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: var(--front-tertiary);
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: 1px solid var(--border-button);
+    -webkit-text-fill-color: var(--back-primary);
+    -webkit-box-shadow: none;
+  }
+
+  &[type="number"],
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+  }
+
+  &[type="search"]::-webkit-search-decoration,
+  &[type="search"]::-webkit-search-cancel-button,
+  &[type="search"]::-webkit-search-results-button,
+  &[type="search"]::-webkit-search-results-decoration {
+    display: none;
+  }
+}

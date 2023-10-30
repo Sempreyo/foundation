@@ -1,0 +1,58 @@
+//- Все примеси в этом файле должны начинаться c имени блока (field-dynamic-placeholder)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin field-dp(type, label, mods, name, id, value, max)
+
+  //- Принимает:
+  //-   type        {string} - тип поля [text|email|phone|search|password|number|file|textarea]
+  //-   label       {string} - заголовок поля
+  //-   mods        {string} - список модификаторов
+  //-   name        {string} - атрибут name
+  //-   id          {string} - атрибут id
+  //-   value       {string} - атрибут value
+  //-   max         {string} - максимальное значение
+  //- Вызов:
+        +field-dp('text', 'Имя', 'some-mod', 'field-name', 'field-id', 'Д’Артаньян')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + 'field-dp--' + modsList[i].trim();
+      }
+    }
+
+
+  .field-dp(class= allMods)
+    label.field-dp__inner
+      if type === 'text'
+        +input(placeholder, '', id, name, value)(class='field-dp__input')&attributes(attributes)
+      if type === 'email'
+        +input-email(placeholder, '', id, name, value)(class='field-dp__input')&attributes(attributes)
+      if type === 'phone'
+        +input-phone(placeholder, '', id, name, value)(class='field-dp__input')&attributes(attributes)
+      if type === 'search'
+        +input-search(placeholder, '', id, name, value)(class='field-dp__input')&attributes(attributes)
+      if type === 'password'
+        +input-password(placeholder, '', id, name, value)(class='field-dp__input')&attributes(attributes)
+      if type === 'number'
+        +input-number(placeholder, '', id, max, name, value)(class='field-dp__input')&attributes(attributes)
+      if type === 'file'
+        +input-file('', id, name)(class='field-dp__input')&attributes(attributes)
+      if type === 'textarea'
+        +textarea(placeholder, '', name, id, value)(class='field-dp__textarea')&attributes(attributes)
+      if label
+        span.field-dp__label!= label
+    .field-dp__message Текст ошибки
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' field-dynamic-placeholder--' + modsList[i].trim();
+      }
+    }

@@ -1,0 +1,48 @@
+//- Все примеси в этом файле должны начинаться c имени блока (header)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin header(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +header('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' header--' + modsList[i].trim();
+      }
+    }
+
+  header.header(class= allMods)&attributes(attributes)
+    .container.header__container
+      .header__logo
+        svg
+          use(href= src.icon + 'star')
+        span Благотворительный фонд
+      .header__group
+        .header__socials
+          a.header__socials-item(href='#')
+            svg
+              use(href= src.icon + 'yt')
+          .header__delimiter
+          a.header__socials-item(href='#')
+            svg
+              use(href= src.icon + 'ok')
+          .header__delimiter
+          a.header__socials-item(href='#')
+            svg
+              use(href= src.icon + 'vk')
+          .header__delimiter
+          a.header__socials-item(href='#')
+            svg
+              use(href= src.icon + 'tg')
+        //button.header__menu
+          svg.burger(width='28', height='28', viewBox='0 0 28 28', fill='none')
+            path.burger__line.burger__line--top(d='M7 8H23C23 8 26 8 26 11C26 14 23 14 23 14H5')
+            path.burger__line.burger__line--middle(d='M5 14H23')
+            path.burger__line.burger__line--bottom(d='M19 20H5C5 20 2 20 2 17C2 14 5 14 5 14H23')

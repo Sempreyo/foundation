@@ -1,0 +1,39 @@
+@use "sass:color";
+
+:root {
+  --body-color: var(--front-primary);
+  --body-bg: var(--back-primary);
+  --font-base: var(--font-roboto);
+  --font-roboto: RobotoFlex, sans-serif;
+  --font-source: SourceSerifPro, sans-serif;
+  --font-noto: NotoSans, sans-serif;
+  --font-size-root: 10px;
+  --font-size-base: 1rem;
+  --font-weight-base: 400;
+  --line-height-base: 1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background-primary: #fff;
+    --color-text-primary: #000;
+    --color-text-secondary: #fff;
+    --color-text-secondary-hover: rgba(255, 255, 255, 0.7);
+    --color-navigation-primary: #000;
+    --color-navigation-primary-hover: rgba(0, 0, 0, 0.7);
+    --color-navigation-secondary: #fff;
+    --color-navigation-secondary-hover: rgba(255, 255, 255, 0.7);
+    --color-border: #f3f3f3;
+    --back-secondary: #1f1f25;
+    --back-tertiary: #292932;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back-primary: #19191e;
+    --back-secondary: #1f1f25;
+    --back-tertiary: #292932;
+  }
+}
+

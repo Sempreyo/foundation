@@ -1,0 +1,80 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/list-reset";
+
+.nav {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+
+  &__list {
+    @include list-reset();
+
+    display: flex;
+    gap: 3.8rem;
+    align-items: center;
+
+    li {
+      &::before {
+        display: none;
+      }
+
+      a {
+        color: var(--color-text-secondary);
+        font-size: 1.8rem;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: 0.3s ease;
+
+        &:hover {
+          color: var(--color-text-secondary-hover);
+        }
+      }
+    }
+  }
+
+  &__help {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-decoration: none;
+
+    svg {
+      width: 4.4rem;
+      height: 4rem;
+      transition: 0.3s ease;
+      fill: var(--color-text-secondary);
+
+      path {
+        transform-origin: center;
+
+        &:first-child {
+          animation: pulse2 2s ease-in-out infinite;
+        }
+
+        &:nth-child(2) {
+          animation: pulse1 2s ease-in-out infinite;
+        }
+      }
+    }
+
+    span {
+      color: var(--color-text-secondary);
+      font-size: 1.8rem;
+      line-height: 1.4;
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      svg {
+        fill: var(--color-text-secondary-hover);
+      }
+
+      span {
+        color: var(--color-text-secondary-hover);
+      }
+    }
+  }
+}

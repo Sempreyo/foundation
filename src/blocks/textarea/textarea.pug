@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (textarea)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin textarea(placeholder, mods, name, id, value)
+
+  //- Принимает:
+  //-   placeholder {string} - атрибут placeholder
+  //-   mods        {string} - список модификаторов
+  //-   name        {string} - атрибут name
+  //-   id          {string} - атрибут id
+  //-   value       {string} - атрибут value
+  //- Вызов:
+        +textarea('Введите текст', 'some-mods', 'textarea-name', 'textarea-id', 'Текст')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' textarea--' + modsList[i].trim();
+      }
+    }
+
+  textarea.textarea(class= mods, id= id, placeholder= placeholder, name= name)&attributes(attributes)!= value

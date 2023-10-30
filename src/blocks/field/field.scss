@@ -1,0 +1,41 @@
+@import "../../scss/mixins/text-styles";
+
+.field {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    @include field;
+
+    order: 1;
+
+    #{$block-name}__input[required] + &::after {
+      margin-left: 2px;
+      color: var(--color-warning);
+      content: "*";
+    }
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    order: 2;
+  }
+
+  &__message {
+    @include field;
+
+    display: none;
+    margin-top: 4px;
+    color: var(--color-warning);
+
+    #{$block-name}__input:invalid + & {
+      display: block;
+    }
+  }
+}

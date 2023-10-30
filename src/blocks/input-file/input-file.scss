@@ -1,0 +1,61 @@
+@import "../../scss/mixins/text-styles";
+
+.input-file {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+
+  &__input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+
+    &::file-selector-button {
+      cursor: pointer;
+    }
+  }
+
+  &__fake-input {
+    @include input;
+
+    display: flex;
+    justify-content: center;
+    height: 48px;
+    padding: 15px 19px;
+    background: var(--back-primary);
+    border: 1px solid var(--border-button);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border 0.25s ease-out, outline 0.25s ease-out;
+
+    #{$block-name}__input--has-value + &,
+    &:hover {
+      border: 1px solid var(--brand-primary);
+    }
+
+    &:focus {
+      outline: 3px solid var(--brand-primary-light);
+    }
+
+    #{$block-name}__input[disabled] + & {
+      color: var(--front-tertiary);
+      border-color: var(--border-button-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  &__title {
+    @include input;
+
+    display: block;
+    max-width: 240px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+    user-select: none;
+  }
+}
