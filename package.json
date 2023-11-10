@@ -23,9 +23,9 @@
     "deploy": "gulp deploy"
   },
   "lint-staged": {
-    "*.{js,pug,md}": "editorconfig-cli",
+    "*.{pug,md}": "editorconfig-cli",
     "*.pug": "pug-lint",
-    "*.scss": "stylelint --custom-syntax postcss-scss",
+    "*.scss": "stylelint --custom-syntax postcss-scss --allow-empty-input",
     "*.js": "eslint"
   },
   "browserslist": [

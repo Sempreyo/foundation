@@ -41,8 +41,9 @@ mixin header(mods)
           a.header__socials-item(href='#')
             svg
               use(href= src.icon + 'tg')
-        //button.header__menu
-          svg.burger(width='28', height='28', viewBox='0 0 28 28', fill='none')
-            path.burger__line.burger__line--top(d='M7 8H23C23 8 26 8 26 11C26 14 23 14 23 14H5')
-            path.burger__line.burger__line--middle(d='M5 14H23')
-            path.burger__line.burger__line--bottom(d='M19 20H5C5 20 2 20 2 17C2 14 5 14 5 14H23')
+        +help(class='header__help')
+        button.header__burger
+          svg(width='32', height='32', viewBox='0 0 32 32', fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(d='M26 23H6', stroke='black', stroke-width='2', stroke-linecap='square', stroke-linejoin='round')
+            path(d='M26 16H6', stroke='black', stroke-width='2', stroke-linecap='square', stroke-linejoin='round')
+            path(d='M26 9H6', stroke='black', stroke-width='2', stroke-linecap='square', stroke-linejoin='round')

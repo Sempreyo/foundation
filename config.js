@@ -27,6 +27,7 @@ let paths = {
 let addAdditions = {
   "src/img/**/*.*": sources.img,
   "src/favicon/*.*": sources.img + '/favicon',
+  "src/js/utils/gsap.min.js": sources.js + '/libs/',
   // "node_modules/somePackage/images/*.{png,svg,jpg,jpeg}": "img/",
 };
 

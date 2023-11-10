@@ -5,6 +5,7 @@ build/*
 src/favicon/
 src/templates/mixins.pug
 src/js/head-script.js
+src/js/utils/gsap.min.js
 src/js/entry.js
 src/scss/style.scss
 src/json
