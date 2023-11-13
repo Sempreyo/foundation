@@ -42,6 +42,10 @@ svg {
   display: none;
 }
 
+.body-scroll-lock {
+  overflow: hidden;
+}
+
 /* Swiper navigation */
 .swiper-btn-next,
 .swiper-btn-prev {

@@ -1,0 +1,36 @@
+//- Все примеси в этом файле должны начинаться c имени блока (socials)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin socials(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +socials('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' socials--' + modsList[i].trim();
+      }
+    }
+
+  .socials(class= allMods)&attributes(attributes)
+    a.socials__item(href='#')
+      svg
+        use(href= src.icon + 'yt')
+    .socials__delimiter
+    a.socials__item(href='#')
+      svg
+        use(href= src.icon + 'ok')
+    .socials__delimiter
+    a.socials__item(href='#')
+      svg
+        use(href= src.icon + 'vk')
+    .socials__delimiter
+    a.socials__item(href='#')
+      svg
+        use(href= src.icon + 'tg')

@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (title)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin title(title, mods)
+
+  //- Вызов:
+        +title
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' title--' + modsList[i].trim();
+      }
+    }
+
+  .title(class=allMods)&attributes(attributes)
+    span!= title
+    if (block)
+      block

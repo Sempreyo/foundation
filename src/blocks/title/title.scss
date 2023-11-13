@@ -1,0 +1,39 @@
+@import "../../scss/breakpoints";
+
+.title {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+
+  & > span {
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.5;
+
+    @media screen and (min-width: $screen-t) {
+      font-size: 3.2rem;
+    }
+  }
+
+  sup {
+    position: relative;
+    top: 0.4rem;
+    padding-left: 1rem;
+    color: var(--color-pink);
+    font-weight: 600;
+    font-size: 1.4rem;
+
+    @media screen and (min-width: $screen-t) {
+      padding-left: 0;
+      font-size: 1.6rem;
+    }
+  }
+
+  &--white {
+    & > span {
+      color: var(--color-text-secondary);
+    }
+  }
+}

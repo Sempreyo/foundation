@@ -1,0 +1,85 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/list-reset";
+
+.menu {
+  $block-name: &; // #{$block-name}__element
+
+  position: fixed;
+  overflow-y: auto;
+  background-color: var(--color-background-primary);
+  transform: translateX(-100%);
+  transition: 0.3s ease;
+  inset: 0;
+
+  &.showed {
+    transform: translateX(0);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2.4rem;
+    right: 2rem;
+  }
+
+  &__group {
+    overflow-y: auto;
+  }
+
+  ul {
+    @include list-reset;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    li {
+      a {
+        color: var(--color-text-primary);
+        font-size: 1.6rem;
+        line-height: 1.5;
+        text-decoration: none;
+        transition: 0.3s ease;
+
+        &:hover {
+          color: var(--color-pink);
+        }
+      }
+    }
+  }
+
+  &__help {
+    display: inline-flex;
+    gap: 0.1rem;
+    margin-top: 3.2rem;
+    padding: 0.7rem 2.4rem;
+    background-color: var(--color-border);
+    border-radius: 11.2rem;
+
+    svg {
+      fill: var(--color-pink);
+    }
+
+    span {
+      color: var(--color-text-primary);
+      font-size: 1.4rem;
+      line-height: 1.57;
+    }
+  }
+
+  &__socials {
+    display: flex !important;
+    margin-top: 2.7rem;
+    padding-top: 11.6rem;
+    border-top: 0.1rem solid var(--color-border);
+
+    @media screen and (orientation: landscape) {
+      padding-top: 2.7rem;
+    }
+  }
+}

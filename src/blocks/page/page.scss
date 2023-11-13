@@ -1,0 +1,11 @@
+@import "../../scss/breakpoints";
+
+.page {
+  &__main {
+    padding-top: 8rem;
+
+    @media screen and (min-width: $screen-t) {
+      padding-top: 12rem;
+    }
+  }
+}

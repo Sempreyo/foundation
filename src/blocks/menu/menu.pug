@@ -1,0 +1,42 @@
+//- Все примеси в этом файле должны начинаться c имени блока (menu)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт в сборку
+
+mixin menu(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +menu('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' menu--' + modsList[i].trim();
+      }
+    }
+
+  .menu(class= allMods)&attributes(attributes)
+    .container.menu__container
+      .menu__close
+        svg(width='32', height='32', viewBox='0 0 32 32', fill='none', xmlns='http://www.w3.org/2000/svg')
+          path(d='M10 10L22 22', stroke='black', stroke-width='2', stroke-linecap='round')
+          path(d='M22 10L10 22', stroke='black', stroke-width='2', stroke-linecap='round')
+      .menu__group
+        ul
+          li
+            a(href='#') О Фонде
+          li
+            a(href='#') Программы
+          li
+            a(href='#') Благодарности
+          li
+            a(href='#') Пресс-центр
+          li
+            a(href='#') Мероприятия
+          li
+            a(href='#') Контакты
+        +help(class='menu__help')
+      +socials()(class='menu__socials')

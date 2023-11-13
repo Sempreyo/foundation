@@ -35,3 +35,8 @@ mixin button(type, title, mods, name, id, href)
   if type === 'link'
     a.button(class= allMods, id= id, href= href)&attributes(attributes)
       span.button__title!= title
+  if type === 'link-arrow'
+    a.button(class= allMods, id= id, href= href)&attributes(attributes)
+      span.button__title!= title
+      svg
+        use(href= src.icon + 'arrow-right')

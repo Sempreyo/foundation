@@ -21,3 +21,23 @@
     opacity: 0;
   }
 }
+
+@keyframes move-bg-text {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 3000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

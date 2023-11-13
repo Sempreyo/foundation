@@ -19,28 +19,14 @@ mixin header(mods)
     }
 
   header.header(class= allMods)&attributes(attributes)
+    +menu()
     .container.header__container
       .header__logo
         svg
           use(href= src.icon + 'star')
         span Благотворительный фонд
       .header__group
-        .header__socials
-          a.header__socials-item(href='#')
-            svg
-              use(href= src.icon + 'yt')
-          .header__delimiter
-          a.header__socials-item(href='#')
-            svg
-              use(href= src.icon + 'ok')
-          .header__delimiter
-          a.header__socials-item(href='#')
-            svg
-              use(href= src.icon + 'vk')
-          .header__delimiter
-          a.header__socials-item(href='#')
-            svg
-              use(href= src.icon + 'tg')
+        +socials()
         +help(class='header__help')
         button.header__burger
           svg(width='32', height='32', viewBox='0 0 32 32', fill='none', xmlns='http://www.w3.org/2000/svg')

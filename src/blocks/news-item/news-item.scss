@@ -1,0 +1,130 @@
+@import "../../scss/breakpoints";
+
+.news-item {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  img {
+    @media screen and (min-width: $screen-1060) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      inset: 0;
+    }
+  }
+
+  &:hover {
+    #{$block-name} {
+      &__title span {
+        @media screen and (min-width: $screen-t) {
+          background-size: 100% 0.1rem;
+        }
+      }
+    }
+
+    img {
+      @media screen and (min-width: $screen-1060) {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &--large {
+    width: 100%;
+
+    @media screen and (min-width: $screen-1060) {
+      height: 0;
+      padding-top: calc(83.7% - 37.2rem - 8rem);
+    }
+
+    @media screen and (min-width: $screen-d) {
+      padding-top: calc(78.527% - 37.2rem - 8rem);
+    }
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(358deg, rgb(15 15 16 / 74%) 3.69%, rgb(0 0 0 / 0%) 44.09%);
+
+      @media screen and (min-width: $screen-1060) {
+        content: "";
+      }
+    }
+
+    #{$block-name} {
+      &__content {
+        width: 100%;
+        margin-top: 1.6rem;
+
+        @media screen and (min-width: $screen-1060) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          margin-top: 0;
+          padding: 4.8rem;
+        }
+      }
+
+      &__date,
+      &__title {
+        @media screen and (min-width: $screen-1060) {
+          color: var(--color-text-secondary);
+        }
+      }
+
+      &__date {
+        @media screen and (min-width: $screen-1060) {
+          font-size: 2.4rem;
+        }
+      }
+
+      &__title {
+        @media screen and (min-width: $screen-1060) {
+          max-width: 61rem;
+          font-size: 3.2rem;
+        }
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__date,
+  &__title {
+    color: var(--color-text-primary);
+  }
+
+  &__date {
+    color: var(--color-date);
+    font-size: 1.4rem;
+    line-height: 1.57;
+  }
+
+  &__title {
+    position: relative;
+    margin-top: 0.8rem;
+    font-weight: 700;
+    font-size: 2rem;
+    font-family: var(--font-source);
+    line-height: 1.3;
+
+    @media screen and (min-width: $screen-t) {
+      font-size: 2.4rem;
+      line-height: 1.25;
+    }
+
+    span {
+      background: linear-gradient(currentcolor, currentcolor) no-repeat 0 100%;
+      background-size: 0 0.1rem;
+      transition: background-size 0.3s ease;
+    }
+  }
+}

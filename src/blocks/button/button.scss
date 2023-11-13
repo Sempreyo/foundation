@@ -72,6 +72,39 @@
     }
   }
 
+  &--link-arrow {
+    display: inline-flex;
+    gap: 1.6rem;
+    justify-content: flex-start;
+    padding: 0;
+    color: var(--color-pink);
+    font-size: 1.6rem;
+    line-height: 1.4;
+
+    @media screen and (min-width: $screen-t) {
+      gap: 2.4rem;
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+
+    svg {
+      width: 3.2rem;
+      height: 3.2rem;
+      transition: transform 0.3s ease;
+      stroke: var(--color-pink);
+      stroke-width: 0.2rem;
+
+      @media screen and (min-width: $screen-t) {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
+
+    &:hover svg {
+      transform: translateX(0.8rem);
+    }
+  }
+
   &--disabled {
     pointer-events: none;
   }
